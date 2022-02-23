@@ -40,6 +40,12 @@ module.exports.ckanToDataPackage = function (datapackage) {
     datapackage.license = license
   }
 
+  // If created field was edited in the Backend
+  // show the edited date
+  if (datapackage.created){
+    datapackage.metadata_created = datapackage.created
+  }
+
   // Parse author and sources
   const source = {}
   if (datapackage.author) {
