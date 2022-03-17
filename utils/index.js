@@ -512,8 +512,10 @@ module.exports.processDataPackage = function (datapackage) {
     // Convert bytes into human-readable format:
     if (resource.size) {
       resource.sizeFormatted = bytes(resource.size, {decimalPlaces: 0})
-    }
-  })
+    } else if (resource.archiver.size) {
+      resource.sizeFormatted = bytes(resource.archiver.size, { decimalPlaces: 0 })
+  }
+})
 
   return datapackage
 }
